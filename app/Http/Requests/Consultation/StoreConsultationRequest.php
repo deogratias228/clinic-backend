@@ -1,0 +1,22 @@
+<?php
+
+namespace App\Http\Requests\Consultation;
+
+use Illuminate\Foundation\Http\FormRequest;
+
+/** Création d'une consultation médicale pour une visite. */
+class StoreConsultationRequest extends FormRequest
+{
+    public function authorize(): bool { return true; }
+
+    public function rules(): array
+    {
+        return [
+            'symptoms'  => ['nullable', 'string', 'max:3000'],
+            'diagnosis' => ['nullable', 'string', 'max:3000'],
+            'treatment' => ['nullable', 'string', 'max:3000'],
+            'notes'     => ['nullable', 'string', 'max:3000'],
+            'follow_up' => ['nullable', 'string', 'max:100'],
+        ];
+    }
+}
